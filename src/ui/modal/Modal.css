@@ -1,0 +1,62 @@
+@keyframes fadeIn {
+  0% {
+    background-color: #0b142000;
+  }
+  100% {
+    background-color: #0b1420cc;
+  }
+}
+
+.modal-container {
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0b1420cc;
+
+  align-items: center;
+  justify-content: center;
+
+  animation: fadeIn 0.3s;
+}
+
+@keyframes modal-popup {
+  0% {
+    opacity: 0;
+    transform: translateY(100px) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+.modal {
+  background-color: var(--palette-surface-primary);
+  padding: var(--spacing-full);
+  border-radius: var(--border-radius-full);
+  min-width: 300px;
+  position: relative;
+  animation-name: modal-popup;
+  animation-duration: 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  transform-origin: center;
+}
+
+.modal-closed {
+  opacity: 0;
+  transform: translateY(100px) scale(0.8);
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: var(--spacing-full);
+  z-index: 10000;
+}
+.reserve-space {
+  padding-top: 60px;
+}

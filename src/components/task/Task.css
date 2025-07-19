@@ -1,0 +1,134 @@
+.task {
+  background-color: var(--palette-surface-primary);
+  border-radius: var(--border-radius-full);
+  padding: var(--spacing-full);
+  display: flex;
+  justify-content: space-between;
+  /* flex-grow: 1; */
+  flex-basis: 100%;
+  width: 50%;
+  transition: flex-basis 1s, background-color 1s, opacity 0.5s;
+  overflow: hidden;
+}
+/* 
+.task-container :hover {
+  background-color: rgb(26, 50, 83);
+} */
+.task-title {
+  font-weight: var(--font-weight-bold);
+  font-size: 16px;
+}
+.task-description {
+}
+.task-buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-half);
+  min-width: 0;
+  justify-content: flex-end;
+}
+
+.task-container {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+.task.removing {
+  min-width: 0;
+  flex-basis: 60px;
+  background-color: #ff444422;
+}
+
+.task-title,
+.task-description {
+  transition: opacity 0.5s 0.5s, max-width 0s 1s;
+  max-width: 1000px;
+  white-space: nowrap;
+}
+
+.removing .task-title,
+.removing .task-description {
+  transition: opacity 0.5s;
+  max-width: 0;
+  opacity: 0;
+  user-select: none;
+}
+
+.button-edit {
+  transition: opacity 0.5s;
+}
+
+.removing .button-edit {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.removing .remove-button svg {
+  color: #ffc4c4;
+  filter: drop-shadow(0 0 5px #f74848);
+}
+
+.removing .remove-button button:hover {
+  background-color: #ff444422;
+}
+
+/* .task.removed {
+  min-width: 0;
+  background-color: #ff444422;
+  transition: opacitiy 0.5s;
+} */
+
+/* .removed.remove-button svg {
+  opacity: 0;
+  transition: opacity 0.5s;
+} */
+
+.removed {
+  opacity: 0;
+  overflow: hidden;
+}
+
+.check-box {
+  align-items: center;
+}
+
+.task.done {
+  opacity: 0.6;
+}
+
+.task.done:hover {
+  opacity: 1;
+}
+
+.task-indicator {
+  width: 20px;
+  height: 20px;
+  /* background-color: var(--palette-background); */
+  border: 2px solid #ffffff40;
+  border-radius: 500px;
+  transition: box-shadow 0.3s, background-color 0.3s;
+}
+
+.task-body {
+  display: flex;
+  gap: var(--spacing-full);
+  align-items: center;
+}
+
+.task.done .task-indicator {
+  border: none;
+  background-color: var(--palette-positive-light);
+  box-shadow: 0px 0px 100px 25px rgb(76, 175, 80);
+}
+
+.task-indicator-container {
+  padding: 12px;
+  cursor: pointer;
+}
+
+.removing .task-indicator {
+  transition: opacity 0.5s;
+  max-width: 0;
+  opacity: 0;
+}
