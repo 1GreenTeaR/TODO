@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Task, TaskType } from "./components/task/Task";
 import "./App.css";
-import { Button } from "./ui/button/Button";
-import { Icon } from "./ui/icon/Icon";
 import { Modal } from "./ui/modal/Modal";
 import { TaskEdit } from "./components/task/edit/TaskEdit";
 import { LocalStorage } from "./utils/localstorage";
@@ -20,10 +18,23 @@ const defaultList = [
     id: 1,
     title: "Clean Room",
     description: "test",
+    date: "2025.07.30",
     isDone: false,
   },
-  { id: 2, title: "title2", description: "test2", isDone: false },
-  { id: 3, title: "title3", description: "test3", isDone: false },
+  {
+    id: 2,
+    title: "title2",
+    description: "test2",
+    date: "2025.07.30",
+    isDone: false,
+  },
+  {
+    id: 3,
+    title: "title3",
+    description: "test3",
+    date: "2025.07.31",
+    isDone: false,
+  },
 ];
 
 export function App() {
@@ -55,33 +66,60 @@ export function App() {
   function removeTask(task: any) {
     setList(list.filter((t) => t !== task));
   }
+
+  const { tasksByDate, dates } = useMemo(() => {
+    const tasksByDate: { [key: string]: TaskType[] } = {};
+
+    for (let i = 0; i < list.length; i++) {
+      const task = list[i];
+      if (!tasksByDate[task.date]) tasksByDate[task.date] = [];
+      tasksByDate[task.date].push(task);
+    }
+
+    const dates = Object.keys(tasksByDate).sort();
+
+    return { tasksByDate, dates };
+  }, [list]);
+
   return (
     <>
       <div className="app-container">
-        <div className="tasks-box">
-          {list.length !== 0 && (
-            <div className="tasks">
-              {list.map((task) => {
-                return (
-                  <Task
-                    key={task.id}
-                    task={task}
-                    onRemove={() => removeTask(task)}
-                    onEdit={() => setCurrentTask(task)}
-                    onChange={(changedTask) =>
-                      setList(
-                        list.map((e) =>
-                          e.id === changedTask.id ? changedTask : e
-                        )
-                      )
-                    }
-                    className="tasks-task"
-                  />
-                );
-              })}
+        {dates.map((date) => (
+          <>
+            <div
+              style={{
+                width: "100%",
+                padding: 10,
+                fontWeight: 800,
+                opacity: 0.8,
+              }}
+            >
+              <div className="date-full">{date}</div> Today
             </div>
-          )}
-        </div>
+            <div className="tasks-box">
+              <div className="tasks">
+                {tasksByDate[date].map((task) => {
+                  return (
+                    <Task
+                      key={task.id}
+                      task={task}
+                      onRemove={() => removeTask(task)}
+                      onEdit={() => setCurrentTask(task)}
+                      onChange={(changedTask) =>
+                        setList(
+                          list.map((e) =>
+                            e.id === changedTask.id ? changedTask : e
+                          )
+                        )
+                      }
+                      className="tasks-task"
+                    />
+                  );
+                })}
+              </div>
+            </div>
+          </>
+        ))}
         {/* <div className="action-board">
           <div className="button-container" style={{ gap: 10 }}>
             <Button

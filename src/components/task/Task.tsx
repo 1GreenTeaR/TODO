@@ -8,6 +8,7 @@ export type TaskType = {
   id: number;
   title: string;
   description: string;
+  date: string;
   isDone: boolean;
 };
 
@@ -76,7 +77,7 @@ export function Task(props: Props) {
                 <div className="task-indicator"></div>
               </div>
 
-              <div>
+              <div className="task-content">
                 <div className="task-title">{props.task.title}</div>
                 <div className="task-description">{props.task.description}</div>
               </div>

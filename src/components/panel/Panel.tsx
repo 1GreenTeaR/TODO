@@ -1,6 +1,9 @@
 import { Button } from "../../ui/button/Button";
 import { Icon } from "../../ui/icon/Icon";
+import { formatDate } from "../../utils/date";
 import { TaskType } from "../task/Task";
+
+import "./Panel.css";
 
 type Props = {
   a: (task: Omit<TaskType, "id">) => void;
@@ -15,6 +18,7 @@ export function Panel({ a }: Props) {
             a({
               title: "test",
               description: "test2",
+              date: formatDate(new Date()),
               isDone: false,
             })
           }
@@ -23,6 +27,7 @@ export function Panel({ a }: Props) {
         >
           <Icon name="plus" />
         </Button>
+        <Button size="xl" className="settings" color="primary"></Button>
       </div>
     </div>
   );

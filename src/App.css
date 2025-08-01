@@ -19,11 +19,6 @@
   border-radius: 20px;
 }
 
-.button-container {
-  display: flex;
-  justify-content: center;
-}
-
 .tasks-task {
   padding-bottom: 10px;
 }
@@ -31,20 +26,15 @@
 .tasks > div:last-child .tasks-task {
   padding-bottom: 0;
 }
-.action-board {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 300px;
-  min-height: 80px;
-  width: 100vw;
-  background-color: var(--palette-surface-primary);
-  border-radius: 18px;
-  position: absolute;
-  bottom: 40px;
-}
+
 .app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.date-full{
+  color: var(--font-color-subtle);
+  font-weight: var(--font-weight-bold);
+  font-size: 12px;
+  line-height: 1;
 }

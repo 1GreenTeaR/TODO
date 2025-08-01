@@ -3,12 +3,17 @@
   border-radius: var(--border-radius-full);
   padding: var(--spacing-full);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   /* flex-grow: 1; */
   flex-basis: 100%;
   width: 50%;
   transition: flex-basis 1s, background-color 1s, opacity 0.5s;
   overflow: hidden;
+}
+
+.task-body {
+  flex-grow: 1;
+  min-width: 0;
 }
 /* 
 .task-container :hover {
@@ -19,6 +24,9 @@
   font-size: 16px;
 }
 .task-description {
+  font-weight: var(--font-weight-regular);
+  color: var(--font-color-subtle);
+  font-size: 14px;
 }
 .task-buttons {
   display: flex;
@@ -26,12 +34,14 @@
   gap: var(--spacing-half);
   min-width: 0;
   justify-content: flex-end;
+  flex: 0 0 auto;
 }
 
 .task-container {
   display: flex;
   justify-content: flex-end;
   flex-grow: 1;
+  overflow: hidden;
 }
 
 .task.removing {
@@ -42,21 +52,26 @@
 
 .task-title,
 .task-description {
-  transition: opacity 0.5s 0.5s, max-width 0s 1s;
-  max-width: 1000px;
+  transition: opacity 0.5s 0.5s;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .removing .task-title,
 .removing .task-description {
   transition: opacity 0.5s;
-  max-width: 0;
   opacity: 0;
   user-select: none;
 }
 
 .button-edit {
   transition: opacity 0.5s;
+}
+
+.task-content {
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 .removing .button-edit {
@@ -129,6 +144,10 @@
 
 .removing .task-indicator {
   transition: opacity 0.5s;
-  max-width: 0;
+  /* max-width: 0; */
   opacity: 0;
+}
+
+.removing .task-buttons {
+  /* width: 0; */
 }

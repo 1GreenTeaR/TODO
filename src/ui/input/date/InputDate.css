@@ -1,0 +1,29 @@
+.input-field{
+    display: block;
+    border: none;
+    background-color: var(--palette-surface-primary-elevated);
+    height: 60px;
+    border-radius: var(--border-radius-full);
+    padding-left: var(--spacing-double);
+    padding-right: var(--spacing-double);
+    width: 100%;
+    font-size: 15px;
+    font-weight: var(--font-weight-bold);
+    padding-top: 14px;
+}
+
+.input-field:focus {
+    outline: 2px solid var(--palette-primary);
+}
+
+.input-container {
+    position: relative;
+}
+
+.input-title {
+    position: absolute;
+    top: var(--spacing-half);
+    left: var(--spacing-double);
+    font-size: 12px;
+    font-weight: var(--font-weight-bold);
+}

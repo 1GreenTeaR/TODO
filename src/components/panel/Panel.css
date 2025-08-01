@@ -1,0 +1,17 @@
+.action-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 300px;
+    min-height: 80px;
+    width: 100vw;
+    background-color: var(--palette-surface-primary);
+    border-radius: 18px;
+    position: fixed;
+    bottom: 40px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
