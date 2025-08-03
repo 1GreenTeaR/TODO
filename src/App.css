@@ -1,40 +1,14 @@
-.tasks-box {
-  min-width: 200px;
-  max-width: 700px;
-  justify-content: center;
-  flex-direction: column;
-  display: flex;
-  gap: 20px;
-
-  width: 100vw;
-}
-.tasks {
-  display: flex;
-  flex-direction: column;
-  gap: 0px;
-
-  border: 3px solid var(--palette-surface-primary);
-
-  padding: 10px;
-  border-radius: 20px;
-}
-
-.tasks-task {
-  padding-bottom: 10px;
-}
-
-.tasks > div:last-child .tasks-task {
-  padding-bottom: 0;
+.container-start, .container-end{
+  font-weight: var(--font-weight-bold);
+  color: var(--font-color-hidden);
+  padding: var(--spacing-double);
+  font-size: 14px;
 }
 
 .app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.date-full{
-  color: var(--font-color-subtle);
-  font-weight: var(--font-weight-bold);
-  font-size: 12px;
-  line-height: 1;
+  padding-bottom: 160px;
+  gap: var(--spacing-full)
 }

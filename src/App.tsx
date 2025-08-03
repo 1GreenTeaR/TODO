@@ -5,6 +5,7 @@ import { Modal } from "./ui/modal/Modal";
 import { TaskEdit } from "./components/task/edit/TaskEdit";
 import { LocalStorage } from "./utils/localstorage";
 import { Panel } from "./components/panel/Panel";
+import { TaskGroup } from "./components/task/group/TaskGroup";
 // import { TextInput } from "./inputs/Text";
 
 function isExcistingTask(
@@ -81,62 +82,34 @@ export function App() {
     return { tasksByDate, dates };
   }, [list]);
 
+  // onRemove={() => removeTask(task)}
+  // onEdit={() => setCurrentTask(task)}
+  // onChange={(changedTask) =>
+  //   setList(
+  //     list.map((e) => (e.id === changedTask.id ? changedTask : e))
+  //   )
+  // }
+
   return (
     <>
       <div className="app-container">
+        <div className="container-start">Start of your TODO journey!</div>
         {dates.map((date) => (
-          <>
-            <div
-              style={{
-                width: "100%",
-                padding: 10,
-                fontWeight: 800,
-                opacity: 0.8,
-              }}
-            >
-              <div className="date-full">{date}</div> Today
-            </div>
-            <div className="tasks-box">
-              <div className="tasks">
-                {tasksByDate[date].map((task) => {
-                  return (
-                    <Task
-                      key={task.id}
-                      task={task}
-                      onRemove={() => removeTask(task)}
-                      onEdit={() => setCurrentTask(task)}
-                      onChange={(changedTask) =>
-                        setList(
-                          list.map((e) =>
-                            e.id === changedTask.id ? changedTask : e
-                          )
-                        )
-                      }
-                      className="tasks-task"
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          </>
+          <TaskGroup
+            date={date}
+            tasks={tasksByDate[date]}
+            taskActions={{
+              remove: removeTask,
+              change: (changedTask) => {
+                setList(
+                  list.map((e) => (e.id === changedTask.id ? changedTask : e))
+                );
+              },
+              edit: setCurrentTask,
+            }}
+          ></TaskGroup>
         ))}
-        {/* <div className="action-board">
-          <div className="button-container" style={{ gap: 10 }}>
-            <Button
-              onClick={() =>
-                setCurrentTask({
-                  title: "test",
-                  description: "test2",
-                  isDone: false,
-                })
-              }
-              color="primary"
-              size="xl"
-            >
-              <Icon name="plus" />
-            </Button>
-          </div>
-        </div> */}
+
         <Panel a={setCurrentTask}></Panel>
         {currentTask !== null && (
           <Modal
@@ -146,6 +119,7 @@ export function App() {
             <TaskEdit task={currentTask} onChange={onChange} />
           </Modal>
         )}
+        <div className="container-end">That's the end of your journey :c</div>
       </div>
     </>
   );
