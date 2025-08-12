@@ -3,12 +3,16 @@
   color: var(--font-color-hidden);
   padding: var(--spacing-double);
   font-size: 14px;
+  text-align: center;
 }
 
 .app-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-bottom: 160px;
-  gap: var(--spacing-full)
+  align-items: stretch;
+  padding: var(--spacing-full);
+  padding-bottom: 120px;
+  gap: var(--spacing-full);
+  width: 100vw;
+  max-width: 700px;
 }

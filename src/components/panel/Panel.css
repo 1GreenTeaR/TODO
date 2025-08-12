@@ -1,17 +1,31 @@
 .action-board {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 300px;
-    min-height: 80px;
-    width: 100vw;
+    padding: 14px;
     background-color: var(--palette-surface-primary);
-    border-radius: 18px;
+    border-radius: 18px 18px 0 0;
     position: fixed;
-    bottom: 40px;
+    bottom: 0;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.6), 0 1.5px 4px 0 rgba(0,0,0,0.4);
+    align-self: center;
   }
 
   .button-container {
     display: flex;
     justify-content: center;
   }
+  .theme-panel{
+    position: fixed;
+    top:0;
+    /* left: 0; */
+    /* padding: var(--spacing-full); */
+    width: calc(100% - 2 * var(--spacing-full));
+    max-width: calc(700px - 2 * var(--spacing-full));
+    display: flex;
+    justify-content: end;
+  }
+.theme-board{
+  padding: 10px;
+  background-color: var(--palette-surface-primary);
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.6), 0 1.5px 4px 0 rgba(0,0,0,0.4);
+  align-self: center;
+}

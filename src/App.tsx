@@ -6,6 +6,7 @@ import { TaskEdit } from "./components/task/edit/TaskEdit";
 import { LocalStorage } from "./utils/localstorage";
 import { Panel } from "./components/panel/Panel";
 import { TaskGroup } from "./components/task/group/TaskGroup";
+import { formatDate } from "./utils/date";
 // import { TextInput } from "./inputs/Text";
 
 function isExcistingTask(
@@ -60,9 +61,15 @@ export function App() {
     else addTask(task);
     setCurrentTask(null);
   }
+
   useEffect(() => {
     LocalStorage.set("tasks", list);
   }, [list]);
+
+  useEffect(() => {
+    document.getElementById("today")?.scrollIntoView({ behavior: "smooth" });
+  }, []);
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function removeTask(task: any) {
     setList(list.filter((t) => t !== task));
@@ -70,6 +77,7 @@ export function App() {
 
   const { tasksByDate, dates } = useMemo(() => {
     const tasksByDate: { [key: string]: TaskType[] } = {};
+    tasksByDate[formatDate(new Date())] = [];
 
     for (let i = 0; i < list.length; i++) {
       const task = list[i];
@@ -94,21 +102,24 @@ export function App() {
     <>
       <div className="app-container">
         <div className="container-start">Start of your TODO journey!</div>
-        {dates.map((date) => (
-          <TaskGroup
-            date={date}
-            tasks={tasksByDate[date]}
-            taskActions={{
-              remove: removeTask,
-              change: (changedTask) => {
-                setList(
-                  list.map((e) => (e.id === changedTask.id ? changedTask : e))
-                );
-              },
-              edit: setCurrentTask,
-            }}
-          ></TaskGroup>
-        ))}
+        {dates.map((date) => {
+          return (
+            <TaskGroup
+              id={date === formatDate(new Date()) ? "today" : undefined}
+              date={date}
+              tasks={tasksByDate[date]}
+              taskActions={{
+                remove: removeTask,
+                change: (changedTask) => {
+                  setList(
+                    list.map((e) => (e.id === changedTask.id ? changedTask : e))
+                  );
+                },
+                edit: setCurrentTask,
+              }}
+            ></TaskGroup>
+          );
+        })}
 
         <Panel a={setCurrentTask}></Panel>
         {currentTask !== null && (

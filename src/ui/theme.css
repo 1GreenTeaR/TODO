@@ -55,3 +55,60 @@
     --transition-simple: 0.2s;
     --transition-complex: 0.3s;
 }
+
+html.light {
+    --palette-primary: #2d51c7;
+    --palette-primary-light: #4267d9;
+    --palette-primary-dark: #1c3ea8;
+    --palette-secondary: #9c27b0;
+    --palette-secondary-light: #ba68c8;
+    --palette-secondary-dark: #7b1fa2;
+
+    --palette-primary-contrast: #ffffff;
+    --palette-secondary-contrast: #ffffff;
+
+    --palette-positive: #2e7d32;
+    --palette-positive-light: #4caf50;
+    --palette-positive-dark: #1b5e20;
+    --palette-negative: #ff4444;
+    --palette-negative-light: #ff6b6b;
+    --palette-negative-dark: #cc0000;
+
+    --palette-warning: #ffbb33;
+    --palette-warning-light: #ffd966;
+    --palette-warning-dark: #ff8800;
+
+    --palette-background: #edf1f3;
+
+    --palette-surface-primary: #ffffff;
+    --palette-surface-primary-elevated: #e9eef6;
+    --palette-surface-secondary: #f0f2f7;
+    --palette-surface-secondary-elevated: #e0e6ef;
+
+    --border-radius-full: 10px;
+    --border-radius-double: 20px;
+    --border-radius-half: 6px;
+    --border-radius-quarter: 3px;
+
+    --spacing-full: 10px;
+    --spacing-double: 20px;
+    --spacing-half: 6px;
+    --spacing-quarter: 3px;
+
+    --font-weight-bold: 700;
+    --font-weight-regular: 500;
+    --font-weight-light: 400;
+
+    --font-color-main: rgb(20, 30, 50);
+    --font-color-content: rgb(40, 50, 70);
+    --font-color-subtle: rgb(100, 110, 130);
+    --font-color-hidden: rgb(160, 170, 190);
+
+    --input-height-s: 30px;
+    --input-height-m: 40px;
+    --input-height-l: 50px;
+    --input-height-xl: 60px;
+
+    --transition-simple: 0.2s;
+    --transition-complex: 0.3s;
+}
