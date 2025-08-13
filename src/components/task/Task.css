@@ -125,6 +125,10 @@
   transition: box-shadow 0.3s, background-color 0.3s;
 }
 
+html.light .task-indicator {
+  border: 2px solid #00000040;
+}
+
 .task-body {
   display: flex;
   gap: var(--spacing-full);

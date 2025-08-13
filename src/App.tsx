@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Task, TaskType } from "./components/task/Task";
+import { TaskType } from "./components/task/Task";
 import "./App.css";
 import { Modal } from "./ui/modal/Modal";
 import { TaskEdit } from "./components/task/edit/TaskEdit";
@@ -7,6 +7,7 @@ import { LocalStorage } from "./utils/localstorage";
 import { Panel } from "./components/panel/Panel";
 import { TaskGroup } from "./components/task/group/TaskGroup";
 import { formatDate } from "./utils/date";
+import { dummyList } from "./dummy-data/initial-list";
 // import { TextInput } from "./inputs/Text";
 
 function isExcistingTask(
@@ -15,33 +16,9 @@ function isExcistingTask(
   return Boolean((task as TaskType).id);
 }
 
-const defaultList = [
-  {
-    id: 1,
-    title: "Clean Room",
-    description: "test",
-    date: "2025.07.30",
-    isDone: false,
-  },
-  {
-    id: 2,
-    title: "title2",
-    description: "test2",
-    date: "2025.07.30",
-    isDone: false,
-  },
-  {
-    id: 3,
-    title: "title3",
-    description: "test3",
-    date: "2025.07.31",
-    isDone: false,
-  },
-];
-
 export function App() {
   const [list, setList] = useState<TaskType[]>(
-    JSON.parse(LocalStorage.get("tasks", JSON.stringify(defaultList)))
+    JSON.parse(LocalStorage.get("tasks", JSON.stringify(dummyList)))
   );
   // const [isVisible, setIsVisible] = useState(false);
   const [currentTask, setCurrentTask] = useState<

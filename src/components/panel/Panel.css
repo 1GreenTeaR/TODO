@@ -4,7 +4,7 @@
     border-radius: 18px 18px 0 0;
     position: fixed;
     bottom: 0;
-    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.6), 0 1.5px 4px 0 rgba(0,0,0,0.4);
+    box-shadow: var(--shadow-normal);
     align-self: center;
   }
 
@@ -26,6 +26,6 @@
   padding: 10px;
   background-color: var(--palette-surface-primary);
   border-radius: 0 0 18px 18px;
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.6), 0 1.5px 4px 0 rgba(0,0,0,0.4);
+  box-shadow: var(--shadow-normal);
   align-self: center;
 }

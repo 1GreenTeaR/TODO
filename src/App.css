@@ -12,7 +12,7 @@
   align-items: stretch;
   padding: var(--spacing-full);
   padding-bottom: 120px;
-  gap: var(--spacing-full);
+  gap: var(--spacing-double);
   width: 100vw;
   max-width: 700px;
 }

@@ -54,6 +54,8 @@
 
     --transition-simple: 0.2s;
     --transition-complex: 0.3s;
+
+    --shadow-normal: 0 2px 12px 0 rgba(0,0,0,0.6), 0 1.5px 4px 0 rgba(0,0,0,0.4);
 }
 
 html.light {
@@ -78,7 +80,7 @@ html.light {
     --palette-warning-light: #ffd966;
     --palette-warning-dark: #ff8800;
 
-    --palette-background: #edf1f3;
+    --palette-background: #F0F4FF;
 
     --palette-surface-primary: #ffffff;
     --palette-surface-primary-elevated: #e9eef6;
@@ -111,4 +113,21 @@ html.light {
 
     --transition-simple: 0.2s;
     --transition-complex: 0.3s;
+
+    --shadow-normal: 0 2px 12px 0 rgba(20, 40, 80, 0.28), 0 1.5px 4px 0 rgba(20, 40, 80, 0.18);
+
+
+
+    --palette-background: #ffffff;
+
+    --palette-surface-primary: #ebf1ff;
+    --palette-surface-primary-elevated: #f3f7ff;
+    --palette-surface-secondary: #c7dcfe;
+    --palette-surface-secondary-elevated: rgb(237, 239, 243);
+
+    --font-color-main: rgb(10, 15, 25);
+    --font-color-content: rgb(25, 30, 40);
+    --font-color-subtle: rgb(60, 70, 90);
+    --font-color-hidden: rgb(90, 100, 120);
+    
 }
